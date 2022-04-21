@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import TableOwners from '../../src/components/TableOwners';
 
 
-import { useCreateOwner } from "../../src/graphql/owners/customHooks";
+import { useCreateOwner } from "../../src/graphql/owners/ownersHooks";
 
 const { Content } = Layout;
 const { Title } = Typography;

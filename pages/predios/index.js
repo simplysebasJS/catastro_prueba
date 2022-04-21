@@ -1,21 +1,68 @@
 import {
-  Layout,
   Typography,
   Form,
   Select,
   Row,
   Col,
-  Input,
   Button,
 } from "antd";
+import { useEffect, useState } from "react";
+import { useGetBuilds } from "../../src/graphql/builds/buildsHooks";
+import { useGetLands } from "../../src/graphql/lands/landsHooks";
 
-const { Content } = Layout;
+
+
+import { useCreateProperty, useGetSelectsData } from "../../src/graphql/properties/propertiesHooks"
+
 const { Title } = Typography;
 
 const { Item } = Form;
 const { Option } = Select;
 
-export default function index() {
+const initialValues = {
+  owner: 0,
+  build: 0,
+  lands: 0
+}
+
+
+export default function predios() {
+  const [property, setProperty] = useState(initialValues)
+  const {data} = useGetSelectsData();
+  console.log(data.allBuilds)
+
+
+
+
+
+  useEffect(() => {
+    let mounted = true;
+
+    if (mounted) {
+      setProperty(initialValues);
+
+
+    }
+    return () => {
+      mounted = false
+    };
+  }, [])
+
+  const addProperty = useCreateProperty();
+
+  const handleSubmit = () => {
+    addProperty({ variables: property });
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProperty({
+      ...property,
+      [name]: value
+    })
+  }
+
+
   return (
     <div>
       <div style={{ padding: 24, minHeight: 360 }}>
@@ -24,22 +71,30 @@ export default function index() {
           <Row gutter={[24, 24]}>
             <Col span={10}>
               <Item label="Nombre de propietario">
-                <Select>
-                  <Option value="">Traer Datos Api</Option>
+                <Select
+                  placeholder="Seleccione el propietario"
+                  value={property.owner}
+                  onChange={(e) => setProperty({ ...property, owner: e })}
+                >
+                  {/* {
+                    data.allOwners.map((e) => {
+                      return (
+                        <Option value={e.id}>{e.name}</Option>
+                      )
+                    })
+                  } */}
                 </Select>
               </Item>
             </Col>
             <Col span={10}>
               <Item label="Construcciones">
                 <Select>
-                  <Option value="">Traer Datos Api</Option>
                 </Select>
               </Item>
             </Col>
             <Col span={10}>
               <Item label="Terreno">
                 <Select>
-                  <Option value="">Traer Datos Api</Option>
                 </Select>
               </Item>
             </Col>

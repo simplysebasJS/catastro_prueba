@@ -8,7 +8,7 @@ import {
 } from 'antd';
 
 import { useEffect, useState } from "react";
-import { useEditOwner } from '../../../graphql/owners/customHooks';
+import { useEditOwner } from '../../../graphql/owners/ownersHooks';
 
 const { Item } = Form;
 const { Option } = Select;

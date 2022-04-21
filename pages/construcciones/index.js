@@ -1,5 +1,4 @@
 import {
-  Layout,
   Typography,
   Form,
   Select,
@@ -12,7 +11,7 @@ import { useEffect, useState } from "react";
 
 
 import TableBuilds from '../../src/components/TableBuilds';
-import { useCreateBuild } from "../../src/graphql/builds/customHooks";
+import { useCreateBuild } from "../../src/graphql/builds/buildsHooks";
 
 const { Title } = Typography;
 
@@ -39,7 +38,7 @@ export default function index() {
       mounted = false;
     }
   }, [])
-  
+
   const addBuild = useCreateBuild();
 
   const handleSubmit = () => {
@@ -64,9 +63,9 @@ export default function index() {
           <Row gutter={[24, 24]}>
             <Col span={10}>
               <Item label="Número de pisos">
-                <Input 
-                  type="number" 
-                  name="floorsBuild" 
+                <Input
+                  type="number"
+                  name="floorsBuild"
                   value={build.floorsBuild}
                   onChange={handleInputChange}
                 />
@@ -74,9 +73,9 @@ export default function index() {
             </Col>
             <Col span={10}>
               <Item label="Área total">
-                <Input 
-                  type="number" 
-                  name="totalAreaBuild" 
+                <Input
+                  type="number"
+                  name="totalAreaBuild"
                   value={build.totalAreaBuild}
                   onChange={handleInputChange}
                 />
@@ -84,10 +83,10 @@ export default function index() {
             </Col>
             <Col span={10}>
               <Item label="Tipo de construcción">
-                <Select 
+                <Select
                   placeholder="Seleccione el tipo de construcción"
                   value={build.typeBuild}
-                  onChange={(e) => setBuild({ ...build, typeBuild: e})}  
+                  onChange={(e) => setBuild({ ...build, typeBuild: e })}
                 >
                   <Option value="Industrial">Industrial</Option>
                   <Option value="Comercial">Comercial</Option>
@@ -97,9 +96,9 @@ export default function index() {
             </Col>
             <Col span={10}>
               <Item label="Direccion">
-                <Input 
+                <Input
                   type="text"
-                  name="adressBuild" 
+                  name="adressBuild"
                   value={build.adressBuild}
                   onChange={handleInputChange}
                 />

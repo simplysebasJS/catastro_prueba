@@ -25,21 +25,21 @@ mutation addBuild($adressBuild: String, $floorsBuild: String, $totalAreaBuild: S
 `
 
 export const EDIT_BUILD = gql`
-  mutation editBuild ($idToEdit: Int!, $adressBuild: String, $floorsBuild: String, $totalAreaBuild: String) {
-    updateBuildById(
-      input: { id: $idToEdit, buildPatch: {
-        adressBuild: $adressBuild
-        floorsBuild: $floorsBuild
-        totalAreaBuild: $totalAreaBuild
-        typeBuild: $typeBuild
-      }
-    }
+mutation editBuild ($idToEdit: Int!, $adressBuild: String, $floorsBuild: String, $totalAreaBuild: String) {
+  updateBuildById(
+    input: { id: $idToEdit, buildPatch: {
+      adressBuild: $adressBuild
+      floorsBuild: $floorsBuild
+      totalAreaBuild: $totalAreaBuild
+      typeBuild: $typeBuild
+    }}
   ) {
     build {
       adressBuild
       floorsBuild
       totalAreaBuild
       typeBuild
+      id
     }
   }
 }
@@ -51,7 +51,8 @@ mutation deleteBuild($idToDelete: Int!) {
   deleteBuildById(
     input: {
       id: $idToDelete
-    }) {
+    }
+  ) {
     deletedBuildId
   }
 }

@@ -10,7 +10,7 @@ import {
 } from "antd";
 
 import { useEffect, useState } from "react";
-import { useEditBuild } from "../../../../src/graphql/builds/customHooks";
+import { useEditBuild } from "../../../graphql/builds/buildsHooks";
 
 
 const { Title } = Typography;
@@ -109,11 +109,6 @@ export default function ModalFormBuilds({ modalVisible, setModalVisible, buildEd
                     onChange={handleInputChange}
                   />
                 </Item>
-              </Col>
-              <Col span={10} style={{ marginTop: "30px" }}>
-                <Button type="primary" htmlType="submit" block>
-                  Enviar Formulario
-                </Button>
               </Col>
             </Row>
           </Form>

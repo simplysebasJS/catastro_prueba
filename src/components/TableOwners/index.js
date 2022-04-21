@@ -1,6 +1,6 @@
 import { Table, Button, Popconfirm, Row, Col } from 'antd'
 import { useState } from 'react';
-import { useDeleteOwner, useGetOwners } from '../../graphql/owners/customHooks'
+import { useDeleteOwner, useGetOwners } from '../../graphql/owners/ownersHooks'
 import ModalFormOwners from '../../../src/components/FormEdit/ModalFormOwners';
 
 

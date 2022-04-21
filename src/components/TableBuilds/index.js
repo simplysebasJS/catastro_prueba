@@ -1,10 +1,10 @@
 import { Table, Button, Popconfirm, Row, Col } from 'antd'
 import { useState } from 'react';
-import { useDeleteBuild, useGetBuilds } from '../../graphql/builds/customHooks'
+import { useDeleteBuild, useGetBuilds } from '../../graphql/builds/buildsHooks'
 import ModalFormBuilds from '../../../src/components/FormEdit/ModalFormBuilds';
 
 
-export default function TableOwners() {
+export default function TableBuilds() {
     const { data, loading } = useGetBuilds();
 
     const deleteBuild = useDeleteBuild();

@@ -23,7 +23,6 @@ export const FIND_BUILDS = gql`
         floorsBuild
         id
         totalAreaBuild
-        nodeId
         typeBuild
       }
     }

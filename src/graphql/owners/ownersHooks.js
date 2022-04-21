@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { ALL_OWNERS } from '../../graphql/owners/queries';
-import { CREATE_OWNER, DELETE_OWNER, EDIT_OWNER } from '../../graphql/owners/mutations';
+import { ALL_OWNERS } from './queries';
+import { CREATE_OWNER, DELETE_OWNER, EDIT_OWNER } from './mutations';
 
 export const useGetOwners = () => {
     const results = useQuery(ALL_OWNERS);

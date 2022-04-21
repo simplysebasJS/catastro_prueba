@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { ALL_BUILDS } from '../../graphql/builds/queries';
-import { CREATE_BUILD, DELETE_BUILD, EDIT_BUILD } from '../../graphql/builds/mutations';
+import { ALL_BUILDS } from './queries';
+import { CREATE_BUILD, DELETE_BUILD, EDIT_BUILD } from './mutations';
 
 
 export const useGetBuilds = () => {
